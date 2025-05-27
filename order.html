@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Order Coffee - 私-Kape-Uno</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      color: #f0e7d8;
+      background-color: #1f1a17;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      background: linear-gradient(rgba(25, 20, 17, 0.8), rgba(25, 20, 17, 0.8)),
+                  url('gif/coffeebackground.gif') no-repeat center center fixed;
+      background-size: cover;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 15px;
+      margin: 0;
+      background-color: rgba(40, 32, 27, 0.9);
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #c5b79d;
+      font-weight: 600;
+      font-size: 1.1em;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffd7a1;
+    }
+
+    header {
+      padding: 60px 20px 20px;
+      text-align: center;
+      animation: fadeInDown 1.5s ease;
+    }
+
+    header h1 {
+      font-size: 3em;
+      color: #ffe4c4;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      margin-bottom: 0.2em;
+    }
+
+    header p {
+      font-size: 1.3em;
+      color: #e8d4b0;
+      margin-top: 0;
+      animation: fadeIn 2s ease;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto 80px;
+      background: rgba(34, 28, 25, 0.9);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6)a;
+      animation: fadeIn 2s ease;
+    }
+
+    .coffee-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #6f4e37;
+      padding: 20px 0;
+      transition: background-color 0.3s ease;
+      position: relative;
+      gap: 20px;
+    }
+
+    .coffee-item:hover {
+      background-color: rgba(111, 78, 55, 0.3);
+      border-radius: 15px;
+    }
+
+    .coffee-image {
+      flex: 0 0 180px; /* Updated size here */
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+      transition: transform 0.3s ease;
+    }
+    .coffee-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .coffee-item:hover .coffee-image {
+      transform: scale(1.05);
+    }
+
+    .coffee-info {
+      flex: 1 1 50%;
+    }
+
+    .coffee-info h3 {
+      color: #ffd7a1;
+      margin: 0 0 6px 0;
+      font-size: 1.6em;
+    }
+
+    .coffee-info p {
+      margin: 0;
+      font-size: 1.05em;
+      color: #d8c3a5;
+    }
+
+    .price {
+      font-size: 1.3em;
+      font-weight: 700;
+      color: #ffe4b5;
+      margin-right: 30px;
+      min-width: 70px;
+      text-align: right;
+    }
+
+    .order-controls {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .order-controls input[type="number"] {
+      width: 60px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1em;
+      text-align: center;
+      font-family: 'Georgia', serif;
+    }
+
+    .btn-add {
+      background-color: #6f4e37;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1em;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+      transition: background-color 0.3s, transform 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-add:hover {
+      background-color: #8c5e3c;
+      transform: scale(1.1);
+    }
+
+    .btn-add:active::after {
+      content: "✓ Added";
+      color: #c9f7c9;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: 700;
+      animation: addedFlash 1.5s ease forwards;
+      pointer-events: none;
+    }
+
+    @keyframes addedFlash {
+      0% {opacity: 1; transform: translate(-50%, -50%) scale(1);}
+      50% {opacity: 0.7; transform: translate(-50%, -50%) scale(1.3);}
+      100% {opacity: 0; transform: translate(-50%, -50%) scale(0.8);}
+    }
+
+    @media (max-width: 700px) {
+      .coffee-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .coffee-image {
+        width: 100%;
+        max-width: 300px;
+        flex: none;
+      }
+
+      .price {
+        margin-right: 0;
+        text-align: left;
+      }
+
+      .order-controls {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #9e8c73;
+      font-size: 0.9em;
+      background-color: rgba(25, 20, 17, 0.9);
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutus.html">About</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="missionandvision.html">Mission</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="faqs.html">FAQs</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="order.html">Order</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Order Your Coffee</h1>
+    <p>Choose your perfect cup from our curated selection</p>
+  </header>
+
+  <main>
+    <div class="coffee-item" data-name="Espresso" data-price="120">
+      <div class="coffee-image">
+        <img src="gif/Espresso.gif" alt="Espresso Coffee" />
+      </div>
+      <div class="coffee-info">
+        <h3>Espresso</h3>
+        <p>Strong, rich, and full-bodied classic shot of espresso.</p>
+      </div>
+      <div class="price">₱120</div>
+      <div class="order-controls">
+        <input type="number" min="0" value="0" aria-label="Quantity of Espresso" />
+        <button class="btn-add" aria-label="Add Espresso to cart">Add</button>
+      </div>
+    </div>
+
+    <div class="coffee-item" data-name="Cappuccino" data-price="150">
+      <div class="coffee-image">
+        <img src="gif/Cappuccino1.gif" alt="Cappuccino Coffee" />
+      </div>
+      <div class="coffee-info">
+        <h3>Cappuccino</h3>
+        <p>Espresso with steamed milk foam, creamy and balanced.</p>
+      </div>
+      <div class="price">₱150</div>
+      <div class="order-controls">
+        <input type="number" min="0" value="0" aria-label="Quantity of Cappuccino" />
+        <button class="btn-add" aria-label="Add Cappuccino to cart">Add</button>
+      </div>
+    </div>
+
+    <div class="coffee-item" data-name="Caramel Macchiato" data-price="180">
+      <div class="coffee-image">
+        <img src="gif/Cappuccino.gif" alt="Caramel Macchiato Coffee" />
+      </div>
+      <div class="coffee-info">
+        <h3>Caramel Macchiato</h3>
+        <p>Vanilla-flavored espresso with steamed milk, topped with caramel drizzle.</p>
+      </div>
+      <div class="price">₱180</div>
+      <div class="order-controls">
+        <input type="number" min="0" value="0" aria-label="Quantity of Caramel Macchiato" />
+        <button class="btn-add" aria-label="Add Caramel Macchiato to cart">Add</button>
+      </div>
+    </div>
+
+    <div class="coffee-item" data-name="Mocha" data-price="170">
+      <div class="coffee-image">
+        <img src="gif/mocha.gif" alt="Mocha Coffee" />
+      </div>
+      <div class="coffee-info">
+        <h3>Mocha</h3>
+        <p>Chocolate and espresso combined with steamed milk for a sweet delight.</p>
+      </div>
+      <div class="price">₱170</div>
+      <div class="order-controls">
+        <input type="number" min="0" value="0" aria-label="Quantity of Mocha" />
+        <button class="btn-add" aria-label="Add Mocha to cart">Add</button>
+      </div>
+    </div>
+
+    <div class="coffee-item" data-name="Iced Coffee" data-price="140">
+      <div class="coffee-image">
+        <img src="gif/Iced Coffee1.gif" alt="Iced Coffee" />
+      </div>
+      <div class="coffee-info">
+        <h3>Iced Coffee</h3>
+        <p>Cold brewed coffee served over ice, refreshing and smooth.</p>
+      </div>
+      <div class="price">₱140</div>
+      <div class="order-controls">
+        <input type="number" min="0" value="0" aria-label="Quantity of Iced Coffee" />
+        <button class="btn-add" aria-label="Add Iced Coffee to cart">Add</button>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top: 40px;">
+      <button id="view-cart" class="btn-add" style="padding: 14px 40px; font-size: 1.3em;">View Cart</button>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 私-Kape-Uno Coffee Shop. All Rights Reserved.
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('.btn-add');
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const coffeeItem = button.closest('.coffee-item');
+        const name = coffeeItem.getAttribute('data-name');
+        const price = parseInt(coffeeItem.getAttribute('data-price'));
+        const quantityInput = coffeeItem.querySelector('input[type="number"]');
+        const quantity = parseInt(quantityInput.value);
+
+        if (quantity > 0) {
+          alert(`${quantity} x ${name} added to cart! Total: ₱${price * quantity}`);
+          quantityInput.value = 0;
+        } else {
+          alert('Please enter a quantity greater than zero.');
+        }
+      });
+    });
+
+    // View cart can be enhanced later to show real cart functionality
+    document.getElementById('view-cart').addEventListener('click', () => {
+      alert('Cart functionality is coming soon!');
+    });
+  </script>
+
+</body>
+</html>

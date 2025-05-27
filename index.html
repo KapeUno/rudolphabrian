@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>私-Kape-Uno Coffee Shop - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('gif/coffeebackground.gif') no-repeat center center fixed;
+      background-size: cover;
+      color: #f1e3d3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* UPDATED NAVIGATION STYLE */
+    nav.navbar {
+      background-color: rgba(30, 24, 21, 0.95);
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      font-weight: 600;
+      font-size: 1em;
+    }
+
+    nav.navbar .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+
+    nav.navbar .logo a {
+      font-family: 'Georgia', serif;
+      font-size: 1.8em;
+      color: #f5e6c9;
+      text-decoration: none;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    nav.navbar ul.nav-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav.navbar ul.nav-links li a {
+      text-decoration: none;
+      color: #d2bba3;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.05em;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+
+    nav.navbar ul.nav-links li a:hover,
+    nav.navbar ul.nav-links li a:focus {
+      color: #ffd7a1;
+      background-color: transparent;
+      outline: none;
+    }
+
+    header {
+      background: rgba(17, 11, 7, 0.75);
+      text-align: center;
+      padding: 80px 20px 60px;
+      font-family: 'Merriweather', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #d4b996;
+      text-shadow: 1px 1px 5px #000;
+      letter-spacing: 2px;
+      user-select: none;
+      animation: fadeInDown 1.5s ease forwards;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    main {
+      flex: 1;
+      max-width: 1200px;
+      margin: -40px auto 60px;
+      padding: 0 20px 40px;
+      background-color: rgba(17, 11, 7, 0.75);
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+      color: #f1e3d3;
+    }
+
+    section {
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.6rem;
+      margin-bottom: 20px;
+      color: #d4b996;
+      text-shadow: 1px 1px 4px #000;
+      letter-spacing: 1.2px;
+    }
+
+    section p {
+      max-width: 750px;
+      margin: 0 auto 30px;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: #f1e3d3cc;
+      font-weight: 400;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+      transition: transform 0.4s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    img:hover,
+    img:focus {
+      transform: scale(1.05);
+      outline: none;
+      box-shadow: 0 10px 30px rgba(175, 138, 94, 0.9);
+    }
+
+    .flex-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .card {
+      background: rgba(111, 76, 62, 0.85);
+      border-radius: 14px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.85);
+      width: 280px;
+      padding: 20px;
+      color: #f1e3d3;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      user-select: none;
+    }
+
+    .card:hover,
+    .card:focus-within {
+      transform: translateY(-8px);
+      box-shadow: 0 14px 38px rgba(111, 76, 62, 0.9);
+      outline: none;
+    }
+
+    .card h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.7rem;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      color: #d4b996;
+    }
+
+    .card p {
+      font-size: 1.05rem;
+      color: #f1e3d3cc;
+      font-weight: 400;
+    }
+
+    footer {
+      background-color: rgba(17, 11, 7, 0.9);
+      color: #d4b996;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.7);
+      user-select: none;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 768px) {
+      nav.navbar ul.nav-links {
+        gap: 10px;
+      }
+
+      section h2 {
+        font-size: 2rem;
+      }
+
+      section p {
+        font-size: 1rem;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation: UPDATED only this part -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo"><a href="index.html">私-Kape-Uno</a></div>
+      <ul class="nav-links">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="aboutus.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="missionandvision.html">Mission</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="order.html">Order</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header Section -->
+  <header>
+    <p>Welcome to 私-Kape-Uno</p>
+  </header>
+
+  <main>
+    <!-- Intro Section -->
+    <section id="home">
+      <p>
+        At <strong>私-Kape-Uno</strong>, we serve the finest hand-crafted coffee, expertly brewed from the best beans around the world. 
+        Whether you’re in the mood for a creamy cappuccino, a rich espresso, or a chilled iced brew, we’ve got you covered. Pair it with one of our freshly baked pastries for the perfect experience. 
+        Step inside and enjoy the cozy ambiance where every cup tells a story.
+      </p>
+      <img src="gif/wallpaper.gif" alt="Coffee Shop Ambiance" tabindex="0" />
+    </section>
+
+    <!-- Featured Coffees -->
+    <section id="featured-coffees">
+      <h2>Our Featured Brews</h2>
+      <p>
+        Whether you prefer your coffee hot or cold, we’ve handpicked a selection of our most popular and exquisite brews. Each cup is carefully prepared to perfection. 
+        Here are a few of our signature offerings:
+      </p>
+      <div class="flex-container">
+        <article class="card" tabindex="0">
+          <img src="gif/The Classic Latte.gif" alt="The Classic Latte" />
+          <h3>The Classic Latte</h3>
+          <p>A smooth espresso combined with steamed milk and a light foam top. Perfectly balanced.</p>
+        </article>
+
+        <article class="card" tabindex="0">
+          <img src="gif/The Rich Cappuccino.gif" alt="The Rich Cappuccino" />
+          <h3>The Rich Cappuccino</h3>
+          <p>Espresso with a velvety foam, delivering a rich and creamy coffee experience.</p>
+        </article>
+
+        <article class="card" tabindex="0">
+          <img src="gif/Iced Coffee.gif" alt="Iced Coffee" />
+          <h3>Iced Coffee</h3>
+          <p>Chilled brewed coffee served with ice and a touch of sweetness. The perfect refresher on a warm day.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Pastries -->
+    <section id="pastries">
+      <h2>Freshly Baked Pastries</h2>
+      <p>
+        No coffee is complete without a delicious pastry on the side! Our bakery offers an array of freshly baked goods that pair perfectly with your favorite brew. 
+        From buttery croissants to moist muffins, each pastry is made with love and care.
+      </p>
+      <div class="flex-container">
+        <article class="card" tabindex="0">
+          <img src="gif/Classic Butter Croissant.webp" alt="Classic Butter Croissant" />
+          <h3>Classic Butter Croissant</h3>
+          <p>Flaky, golden-brown croissant with a rich, buttery flavor. A perfect morning treat.</p>
+        </article>
+
+        <article class="card" tabindex="0">
+          <img src="gif/Blueberry Muffin.gif" alt="Blueberry Muffin" />
+          <h3>Blueberry Muffin</h3>
+          <p>Soft, moist muffin bursting with fresh blueberries. Ideal with a cup of coffee or tea.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 私-Kape-Uno Coffee Shop &mdash; Crafted with passion & coffee love.
+  </footer>
+</body>
+</html>

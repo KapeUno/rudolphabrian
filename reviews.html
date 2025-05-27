@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reviews - 私-Kape-Uno</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      color: #f0e7d8;
+      background-color: #1f1a17;
+    }
+
+    body::before {
+      content: '';
+      background: linear-gradient(rgba(25, 20, 17, 0.6), rgba(25, 20, 17, 0.6)),
+                  url(img/111111.gif) no-repeat center center fixed;
+      background-size: cover;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+    }
+
+    nav.navbar {
+      background-color: rgba(30, 24, 21, 0.95);
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      font-weight: 600;
+      font-size: 1em;
+    }
+
+    nav.navbar .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+
+    nav.navbar .logo a {
+      font-family: 'Georgia', serif;
+      font-size: 1.8em;
+      color: #f5e6c9;
+      text-decoration: none;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    nav.navbar ul.nav-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav.navbar ul.nav-links li a {
+      text-decoration: none;
+      color: #d2bba3;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.05em;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+
+    nav.navbar ul.nav-links li a:hover,
+    nav.navbar ul.nav-links li a:focus {
+      color: #ffd7a1;
+      background-color: transparent;
+      outline: none;
+    }
+
+    header, section, footer {
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    header h1 {
+      font-size: 3em;
+      color: #ffe4c4;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      animation: fadeInDown 1.5s ease;
+    }
+
+    header p {
+      font-size: 1.3em;
+      color: #e8d4b0;
+      animation: fadeIn 2s ease;
+    }
+
+    .transparent-section {
+      background: transparent;
+      animation: fadeIn 2s ease;
+    }
+
+    .review {
+      text-align: left;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .review h3 {
+      margin: 0 0 5px;
+      color: #ffd7a1;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    }
+
+    .review .stars {
+      color: #f8d37a;
+      margin-bottom: 10px;
+    }
+
+    .review p {
+      margin: 0;
+      font-size: 1.05em;
+      color: #f0e7d8;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+    }
+
+    footer {
+      background-color: rgba(32, 25, 20, 0.9);
+      color: #bba98f;
+      font-size: 0.9em;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      margin-top: 60px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo"><a href="index.html">私-Kape-Uno</a></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="missionandvision.html">Mission</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="reviews.html" class="active">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="order.html">Order</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>Customer Reviews</h1>
+    <p>Voices of Coffee Lovers</p>
+  </header>
+
+  <!-- Transparent Review Section -->
+  <section class="transparent-section">
+
+    <div class="review">
+      <h3>Maria S. – Coffee Enthusiast</h3>
+      <div class="stars">★★★★★</div>
+      <p>"Absolutely love the ambiance and the caramel macchiato. The baristas always greet you with a smile, and the coffee is brewed to perfection!"</p>
+    </div>
+
+    <div class="review">
+      <h3>Jayden R. – Remote Worker</h3>
+      <div class="stars">★★★★☆</div>
+      <p>"Kape-Uno is my go-to café for working remotely. Great WiFi, calming music, and the vanilla latte keeps me focused. Would love more charging outlets though."</p>
+    </div>
+
+    <div class="review">
+      <h3>Chloe M. – Daily Visitor</h3>
+      <div class="stars">★★★★★</div>
+      <p>"Their matcha latte is the best in town. The staff knows my name and my order. It feels like a second home!"</p>
+    </div>
+
+    <div class="review">
+      <h3>Dr. Enzo L. – Professor</h3>
+      <div class="stars">★★★★★</div>
+      <p>"As someone who appreciates peace and quiet, 私-Kape-Uno provides the perfect spot to read and unwind. Their espresso blend is bold and rich."</p>
+    </div>
+
+    <div class="review">
+      <h3>Isabel V. – Photographer</h3>
+      <div class="stars">★★★★☆</div>
+      <p>"I often visit for photo shoots — the lighting and interior are stunning. Plus, the mocha and chocolate croissants are divine!"</p>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 私-Kape-Uno | Capturing Caffeine & Calm</p>
+  </footer>
+</body>
+</html>

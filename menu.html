@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>私-Kape-Uno Coffee Shop - Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url(gif/menu.gif) no-repeat center center fixed;
+      background-size: cover;
+      color: #f1e3d3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav.navbar {
+      background-color: rgba(30, 24, 21, 0.95);
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      font-weight: 600;
+      font-size: 1em;
+    }
+
+    nav.navbar .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+
+    nav.navbar .logo a {
+      font-family: 'Georgia', serif;
+      font-size: 1.8em;
+      color: #f5e6c9;
+      text-decoration: none;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    nav.navbar ul.nav-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav.navbar ul.nav-links li a {
+      text-decoration: none;
+      color: #d2bba3;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.05em;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+
+    nav.navbar ul.nav-links li a:hover,
+    nav.navbar ul.nav-links li a:focus {
+      color: #ffd7a1;
+      background-color: transparent;
+      outline: none;
+    }
+
+    /* Header */
+    header {
+      background: rgba(17, 11, 7, 0.75);
+      text-align: center;
+      padding: 80px 20px 60px;
+      font-family: 'Merriweather', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #d4b996;
+      text-shadow: 1px 1px 5px #000;
+      letter-spacing: 2px;
+      user-select: none;
+      animation: fadeInDown 1.5s ease forwards;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    main {
+      flex: 1;
+      max-width: 1200px;
+      margin: -40px auto 60px;
+      padding: 0 20px 40px;
+      background-color: rgba(17, 11, 7, 0.75);
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+      color: #f1e3d3;
+    }
+
+    section {
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.6rem;
+      margin-bottom: 20px;
+      color: #d4b996;
+      text-shadow: 1px 1px 4px #000;
+      letter-spacing: 1.2px;
+    }
+
+    section p {
+      max-width: 750px;
+      margin: 0 auto 30px;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: #f1e3d3cc;
+      font-weight: 400;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+      transition: transform 0.4s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    img:hover,
+    img:focus {
+      transform: scale(1.05);
+      outline: none;
+      box-shadow: 0 10px 30px rgba(175, 138, 94, 0.9);
+    }
+
+    .flex-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .card {
+      background: rgba(111, 76, 62, 0.85);
+      border-radius: 14px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.85);
+      width: 280px;
+      padding: 20px;
+      color: #f1e3d3;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover,
+    .card:focus-within {
+      transform: translateY(-8px);
+      box-shadow: 0 14px 38px rgba(111, 76, 62, 0.9);
+      outline: none;
+    }
+
+    .card h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.7rem;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      color: #d4b996;
+    }
+
+    .card p {
+      font-size: 1.05rem;
+      color: #f1e3d3cc;
+      font-weight: 400;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .btn {
+      align-self: center;
+      padding: 12px 28px;
+      background-color: #6f4e37;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 1.1em;
+      box-shadow: 0 6px 16px rgba(111, 76, 62, 0.9);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      user-select: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .btn:hover,
+    .btn:focus {
+      background-color: #8c5e3c;
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    footer {
+      background-color: rgba(17, 11, 7, 0.9);
+      color: #d4b996;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.7);
+      user-select: none;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 768px) {
+      nav.navbar ul.nav-links {
+        gap: 10px;
+      }
+
+      section h2 {
+        font-size: 2rem;
+      }
+
+      section p {
+        font-size: 1rem;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo"><a href="index.html">私-Kape-Uno</a></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html">About</a></li>
+        <li><a href="menu.html" aria-current="page">Menu</a></li>
+        <li><a href="missionandvision.html">Mission</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="order.html">Order</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <p>Our Menu</p>
+  </header>
+
+  <main>
+    <!-- Coffee Creations -->
+<section id="coffee-creations">
+  <h2>Coffee Creations</h2>
+  <div class="flex-container">
+    <article class="card" tabindex="0">
+      <img src="menu/img/Hot Cappuccino.jpg" alt="Hot Cappuccino" />
+      <h3>Hot Cappuccino</h3>
+      <p>Earthy matcha swirled with creamy milk.</p>
+      <a href="order.html" class="btn" aria-label="Order Hot Cappuccino">Order Now</a>
+    </article>
+
+    <article class="card" tabindex="0">
+      <img src="menu/img/Hot Cafe Latte.jpg" alt="Hot Cafe Latte" />
+      <h3>Hot Cafe Latte</h3>
+      <p>Sweet caramel and espresso in perfect balance.</p>
+      <a href="order.html" class="btn" aria-label="Order Hot Cafe Latte">Order Now</a>
+    </article>
+
+    <article class="card" tabindex="0">
+      <img src="menu/img/Hot Vietnamese Latte.jpg" alt="Hot Vietnamese Latte" />
+      <h3>Vietnamese Latte</h3>
+      <p>Classic latte with fragrant vanilla bean syrup.</p>
+      <a href="order.html" class="btn" aria-label="Order Hot Vietnamese Latte">Order Now</a>
+    </article>
+  </div>
+</section>
+
+<!-- Pastry Selections -->
+<section id="pastry-selections">
+  <h2>Pastry Selections</h2>
+  <div class="flex-container">
+    <article class="card" tabindex="0">
+      <img src="menu/img/Croissants.jpg" alt="Croissants" />
+      <h3>Croissants</h3>
+      <p>Sweet Croissants filling with toasted sliced almonds.</p>
+      <a href="order.html" class="btn" aria-label="Order Croissants">Order Now</a>
+    </article>
+
+    <article class="card" tabindex="0">
+      <img src="menu/img/Muffins.jpg" alt="Muffins" />
+      <h3>Muffins</h3>
+      <p>Moist muffin bursting with fresh blueberries.</p>
+      <a href="order.html" class="btn" aria-label="Order Muffins">Order Now</a>
+    </article>
+
+    <article class="card" tabindex="0">
+      <img src="menu/img/Danishes.jpg" alt="Danishes" />
+      <h3>Danishes</h3>
+      <p>Soft roll with cinnamon swirls and icing drizzle.</p>
+      <a href="order.html" class="btn" aria-label="Order Danishes">Order Now</a>
+    </article>
+  </div>
+</section>
+
+<!-- Tea & More -->
+<section id="tea-more">
+  <h2>Tea & More</h2>
+  <div class="flex-container">
+    <article class="card" tabindex="0">
+      <img src="menu/img/herbaltea.jfif" alt="Herbal Infusion" />
+      <h3>Herbal Infusion</h3>
+      <p>Calming blend of chamomile and lavender.</p>
+      <a href="order.html" class="btn" aria-label="Order Herbal Infusion">Order Now</a>
+    </article>
+
+    <article class="card" tabindex="0">
+      <img src="menu/img/coldcoffee.jpg" alt="Cold Brew Coffee" />
+      <h3>Cold Brew Coffee</h3>
+      <p>Rich, smooth, and refreshing cold brew coffee.</p>
+      <a href="order.html" class="btn" aria-label="Order Cold Brew Coffee">Order Now</a>
+    </article>
+
+    <article class="card" tabindex="0">
+      <img src="menu/img/fresh.jpg" alt="Iced Tea" />
+      <h3>Iced Tea</h3>
+      <p>Refreshing iced tea with hints of lemon and mint.</p>
+      <a href="order.html" class="btn" aria-label="Order Iced Tea">Order Now</a>
+    </article>
+  </div>
+</section>
+  </main>
+
+  <footer>
+    &copy; 2025 私-Kape-Uno Coffee Shop. All rights reserved.
+  </footer>
+
+</body>
+</html>
